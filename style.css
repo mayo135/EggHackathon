@@ -1,0 +1,463 @@
+/* ========== 全体リセット・ベース ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", sans-serif;
+  background-color: #fdf6e3;
+  color: #333;
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding-bottom: 2rem;
+}
+
+/* ========== ナビゲーション（タブ） ========== */
+#tab-nav {
+  display: flex;
+  background-color: #fff;
+  border-bottom: 2px solid #e0d8c8;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 14px 0;
+  border: none;
+  background: none;
+  font-size: 15px;
+  font-weight: bold;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.2s, border-bottom 0.2s;
+  border-bottom: 3px solid transparent;
+}
+
+.tab-btn.active {
+  color: #e67e22;
+  border-bottom: 3px solid #e67e22;
+}
+
+/* ========== タブコンテンツの表示切り替え ========== */
+.tab-content {
+  display: none;
+  padding: 24px 20px;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* ========== メインタブ ========== */
+
+/* 学年バッジ */
+.year-badge {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #e67e22;
+  margin-bottom: 16px;
+}
+
+/* キャラクター表示エリア */
+#character-area {
+  text-align: center;
+  margin: 20px 0;
+}
+
+#character-img {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  /* 画像がない場合の仮表示 */
+  background-color: #f0e6d3;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+#character-name {
+  margin-top: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #555;
+}
+
+/* スコア表示 */
+#score-display {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+  font-size: 13px;
+  color: #777;
+}
+
+/* 学年進行ボタン */
+#advance-year-btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #e67e22;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#advance-year-btn:hover {
+  background-color: #cf6d17;
+}
+
+#advance-year-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* ========== 活動記録タブ ========== */
+#activity-view h2 {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #555;
+}
+
+.form-group select,
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #fff;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+/* イベント重み表示 */
+.weights-info {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  background-color: #fff;
+  border-radius: 6px;
+  border: 1px solid #eee;
+}
+
+/* 記録ボタン */
+#record-btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #27ae60;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#record-btn:hover {
+  background-color: #219a52;
+}
+
+/* ========== 履歴タブ ========== */
+#history-view h2 {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+#history-list {
+  list-style: none;
+}
+
+#history-list li {
+  padding: 12px;
+  margin-bottom: 8px;
+  background-color: #fff;
+  border-radius: 6px;
+  border: 1px solid #eee;
+}
+
+#history-list li .event-name {
+  font-weight: bold;
+  color: #333;
+}
+
+#history-list li .event-date {
+  font-size: 13px;
+  color: #888;
+  margin-left: 8px;
+}
+
+#history-list li .event-memo {
+  display: block;
+  margin-top: 4px;
+  font-size: 13px;
+  color: #666;
+}
+
+#history-empty {
+  text-align: center;
+  color: #aaa;
+  margin-top: 40px;
+}
+
+/* ========== カレンダー ========== */
+
+/* 月切り替えヘッダー */
+#calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+#calendar-header button {
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #555;
+}
+
+#calendar-header button:hover {
+  background-color: #f0e6d3;
+}
+
+#cal-month-label {
+  font-size: 17px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* カレンダーグリッド（7列） */
+#calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+/* 曜日ヘッダー */
+.cal-dow {
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: #888;
+  padding: 6px 0;
+}
+
+/* 日付セル */
+.cal-day {
+  background-color: #ffffff;
+  border: 2px solid transparent;
+  text-align: center;
+  padding: 4px 2px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cal-day:hover {
+  border: 2px solid #f6dac2;
+}
+
+/* 空セル（前月・翌月の埋め） */
+.cal-day.empty {
+  cursor: default;
+}
+
+.cal-day.empty:hover {
+  background-color: transparent;
+}
+
+.cal-day.today::before {
+    content: "▼";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 15px;
+    color: #e67e22;
+  }
+
+/* 今日 */
+.cal-day.today {
+  font-weight: bold;
+}
+
+/* 活動がある日 */
+.cal-day.has-activity {
+  font-weight: bold;
+}
+
+/* 選択中の日 */
+.cal-day.selected {
+  border: 2px solid #e67e22;
+}
+
+.cal-day.selected::after {
+  background-color: #fff;
+}
+
+/* 日付番号 */
+.cal-day-num {
+  display: block;
+  font-size: 14px;
+}
+
+/* 活動テキストタグ（セル内に積み重なる。1つなら残りを埋める） */
+.cal-activity-tag {
+  font-size: 9px;
+  line-height: 1.2;
+  padding: 1px 2px;
+  margin-top: 2px;
+  background-color: #fdebd0;
+  border-radius: 3px;
+  color: #333;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 隠し卵（背景に溶け込む） */
+.hidden-egg {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  pointer-events: auto;
+  cursor: default;
+  transition: opacity 0.3s;
+  z-index: 2;
+}
+
+/* 見つけた時 */
+.hidden-egg.found {
+  animation: egg-pop 0.4s ease;
+}
+
+@keyframes egg-pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.8); }
+  100% { transform: scale(1); }
+}
+
+/* 卵発見テキストポップ */
+.egg-popup {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  font-weight: bold;
+  color: #e67e22;
+  white-space: nowrap;
+  z-index: 10;
+  pointer-events: none;
+  animation: popup-float 2s ease forwards;
+}
+
+@keyframes popup-float {
+  0% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-30px); }
+}
+
+/* 日付クリック時の詳細表示 */
+#cal-detail {
+  margin-top: 16px;
+  padding: 12px;
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+#cal-detail h3 {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+#cal-detail-list {
+  list-style: none;
+}
+
+#cal-detail-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#cal-detail-list li:last-child {
+  border-bottom: none;
+}
+
+#cal-detail-list li:hover {
+  background-color: #fdf0e0;
+}
+
+/* --- キャラクターのプルプル・ジャンプ演出 --- */
+@keyframes egg-wiggle {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.1, 0.9) rotate(5deg); } /* 横に潰れて少し回転 */
+  50% { transform: scale(0.9, 1.1) translateY(-10px); } /* 縦に伸びて少し浮く */
+  75% { transform: scale(1.05, 0.95) rotate(-5deg); }
+  100% { transform: scale(1); }
+}
+
+.wiggle-active {
+  animation: egg-wiggle 0.4s ease-in-out;
+}
+
+#easter-egg-image {
+    position: fixed;
+    z-index: 9999;
+    height: 500px;
+    bottom: -100px; /* 記録ボタン付近の高さに調整 */
+    right: -500px; /* 画面の右外に隠しておく */
+    pointer-events: none;
+}
+
+/* アニメーション用クラス */
+.animate-easter-egg {
+    animation: moveAndFade 5s linear forwards;
+}
+
+@keyframes moveAndFade {
+    0% { right: -250px; opacity: 1; }
+    80% { right: 100%; opacity: 1; }
+    100% { right: 120%; opacity: 0; }
+}

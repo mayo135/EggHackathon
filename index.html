@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>たまごっち型ライフログ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<img src="images/kansha.png" id="easter-egg-image" alt="Easter Egg">
+
+<body>
+
+  <!-- ========== ナビゲーション（タブ切り替え） ========== -->
+  <nav id="tab-nav">
+    <button class="tab-btn active" data-tab="main-view">メイン</button>
+    <button class="tab-btn" data-tab="activity-view">活動記録</button>
+    <button class="tab-btn" data-tab="history-view">履歴</button>
+  </nav>
+
+  <!-- ========== メインタブ ========== -->
+  <section id="main-view" class="tab-content active">
+    <!-- 学年表示 -->
+    <div id="year-display" class="year-badge">1年生</div>
+
+    <!-- キャラクター表示エリア -->
+    <div id="character-area">
+      <img id="character-img" src="images/egg.png" alt="たまごキャラクター">
+      <p id="character-name">たまご</p>
+    </div>
+
+    <!-- 現在のスコア（デバッグ・確認用、非表示にしてもOK） -->
+    <div id="score-display">
+      <span>運動: <span id="score-sports">0</span></span>
+      <span>知識: <span id="score-knowledge">0</span></span>
+      <span>技術: <span id="score-tech">0</span></span>
+      <span>ビジネス: <span id="score-business">0</span></span>
+    </div>
+
+    <!-- 学年を進めるボタン -->
+    <button id="advance-year-btn">学年を進める</button>
+  </section>
+
+  <!-- ========== 活動記録タブ ========== -->
+  <section id="activity-view" class="tab-content">
+    <h2>活動を記録する</h2>
+
+    <!-- イベント選択 -->
+    <div class="form-group">
+      <label for="event-select">イベント</label>
+      <select id="event-select">
+        <!-- activity.js で動的に生成 -->
+      </select>
+    </div>
+
+    <!-- 活動日 -->
+    <div class="form-group">
+      <label for="activity-date">活動日</label>
+      <input type="date" id="activity-date">
+    </div>
+
+    <!-- メモ -->
+    <div class="form-group">
+      <label for="activity-memo">メモ（任意）</label>
+      <textarea id="activity-memo" rows="3" placeholder="活動内容をメモ..."></textarea>
+    </div>
+
+    <!-- 記録ボタン -->
+    <button id="record-btn">記録する</button>
+  </section>
+
+  <!-- ========== 履歴タブ（カレンダー形式） ========== -->
+  <section id="history-view" class="tab-content">
+    <h2>活動履歴</h2>
+
+    <!-- 月切り替えヘッダー -->
+    <div id="calendar-header">
+      <button id="cal-prev-btn">&lt;</button>
+      <span id="cal-month-label"></span>
+      <button id="cal-next-btn">&gt;</button>
+    </div>
+
+    <!-- カレンダー本体 -->
+    <div id="calendar-grid">
+      <!-- 曜日ヘッダー -->
+      <div class="cal-dow">日</div>
+      <div class="cal-dow">月</div>
+      <div class="cal-dow">火</div>
+      <div class="cal-dow">水</div>
+      <div class="cal-dow">木</div>
+      <div class="cal-dow">金</div>
+      <div class="cal-dow">土</div>
+      <!-- 日付セルは main.js で動的に生成 -->
+    </div>
+
+    <!-- 選択した日の活動詳細 -->
+    <div id="cal-detail" style="display: none;">
+      <h3 id="cal-detail-date"></h3>
+      <ul id="cal-detail-list"></ul>
+    </div>
+
+    <p id="history-empty">まだ活動が記録されていません。</p>
+  </section>
+
+  <!-- JS読み込み（順序重要：activity.js → growth.js → main.js） -->
+  <script src="activity.js"></script>
+  <script src="growth.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
