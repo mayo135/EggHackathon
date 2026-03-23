@@ -1,7 +1,7 @@
 # たまごっち型ライフログアプリ 仕様書
 
 今すぐプレイ
-https://mayo135.github.io/eggHackthon/
+https://mayo135.github.io/EggHackathon/
 
 ## 1. 概要
 
